@@ -12,7 +12,7 @@ package
 		public function Level() 
 		{
 			super();
-			add(new Player(400, 400));
+			add(new Player(10, 400));
 			add(new BigMeteor(400, 35));
 		}
 		
