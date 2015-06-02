@@ -12,8 +12,9 @@ package
 		
 		public function Main():void
 		{
-			super(800, 600, 60, false);
+			super(800, 900, 60, false);
 			FP.world = new Level();
+			FP.console.enable();
 		}
 			
 		override public function init():void 
