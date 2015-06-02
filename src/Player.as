@@ -18,7 +18,7 @@ package
 	public class Player extends Entity 
 	{	
 		[Embed(source="../assets/player.png")]	private const PLAYER:Class;
-		var target:Object = this;
+		private var target:Object = this;
 		public function Player(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
 		{
 			graphic = new Image(PLAYER);
@@ -50,31 +50,18 @@ package
 			trace("Player updates");
 			super.update();
 			
-			if (Input.check(Key.A))
-			{
-				x -= 5;
-			}
-			
-			if (Input.check(Key.D))
-			{
-				x += 5;
-			}
-			
-			if (Input.check(Key.W))
-			{y -= 5;}
-			
-			if (Input.check(Key.S))
-			{
-				y += 5;
-			}
-			
 			var b:BigMeteor = collide("meteor", x, y) as BigMeteor;
 			
 			if (b)
 			{
-				b.destroy();
+				destroy();
 			}
 					
+		}
+		
+		public function  destroy():void
+		{
+			FP.world.remove(this);
 		}
 	}
 

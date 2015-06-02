@@ -79,7 +79,7 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>C:\Users\O23002\Documents\Prototipado\OnButtonGame\src\killflashplayers.bat</preBuildCommand>
+  <preBuildCommand>C:\Users\Leandro\Documents\OneButtonGame\src\killflashplayers.bat</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
