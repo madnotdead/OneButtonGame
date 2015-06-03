@@ -17,8 +17,6 @@ package
 		{
 			graphic = new Text("Score: 0");
 			super(x, y, graphic, mask);
-			
-			
 		}
 		
 		public function get GetScore():int { return _score; }

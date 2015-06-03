@@ -33,7 +33,9 @@ package
 			
 			var b:BigMeteor = collide("bMeteor", x, y) as BigMeteor;
 			var s:SmallMeteor = collide("sMeteor", x, y) as SmallMeteor;
-			if (y <= 0 || b || s)
+			var e:Enemy = collide("enemy", x, y) as Enemy;
+			
+			if (y <= 0 || b || s || e)
 				FP.world.remove(this);
 		}
 	}

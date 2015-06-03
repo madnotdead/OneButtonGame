@@ -42,7 +42,7 @@ package
 			
 			leftShoot = new Point(2, 0);
 			rightShoot = new Point(90, 0);
-			
+			type = "player";
 		}
 	
 		
@@ -100,6 +100,10 @@ package
 				FP.world.add(shootL);
 				FP.world.add(shootR);
 			}
+			
+			
+			if (health <= 0)
+				isAlive = false;
 		}
 		
 		public function  destroy():void
