@@ -27,7 +27,7 @@ package
 		private var titleTweenOut:VarTween;
 		public var gameScore:GameScore;
 		public var player:Player;
-		
+		private var playerHealth:Text;
 		public function Level() 
 		{
 			super();
@@ -36,7 +36,7 @@ package
 			titleTweenIn = new VarTween();
 			titleTweenOut = new VarTween();
 			addTween(titleTweenIn);
-			addTween(titleTweenOut);
+			addTween(titleTweenOut);			
 		}
 		
 		override public function update():void 
@@ -46,11 +46,13 @@ package
 			
 			if (status == GAME)
 			{
-				if (Input.pressed(Key.ESCAPE))
+				if (!player.IsAlive)
 				{
 					removeAll();
 					status = GAMEOVER;
 				}
+				
+				playerHealth.text = "Health: " + player.Health;
 			}
 			
 			if (status == STARTING)
@@ -75,6 +77,14 @@ package
 				gameScore = new GameScore(700, 850);
 				
 				add(gameScore);
+				
+				
+				playerHealth = new Text("Health: " + player.Health);
+				playerHealth.scale = 2;
+				playerHealth.x = 550;
+				playerHealth.y = 50;
+				
+				addGraphic(playerHealth);
 				
 				status = GAME;
 			}
@@ -113,10 +123,7 @@ package
 			
 			if (status == GAMEOVER)
 			{
-				var score:int = gameScore.GetScore;
-				
-
-				
+				var score:int = gameScore.GetScore;				
 				title =  new Text("GAMEOVER");
 				title.scale = 5;
 				title.x = (FP.screen.width - title.scaledWidth) / 2;

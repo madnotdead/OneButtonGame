@@ -20,15 +20,14 @@ package
 	{	
 		[Embed(source="../assets/player.png")]	private const PLAYER:Class;
 		private var target:Object = this;
-		public var isAlive:Boolean = true;
+		private var isAlive:Boolean = true;
 		
 		private var leftShoot:Point;
 		private var rightShoot:Point;
-		private var hits:int = 3;
+		private var health:int = 100;
 		
-
-		
-		public function get Hits():int { return hits; }
+		public function get Health():int { return health; }
+		public function get IsAlive():Boolean { return isAlive; }
 		
 		public function Player(x:Number=0, y:Number=0, graphic:Graphic=null, mask:Mask=null) 
 		{
@@ -69,13 +68,13 @@ package
 			
 			if (b || s)
 			{
-				hits--;
+				health-= 10;
 				if(b)
 					b.reset();
 				else
 					s.reset();
 					
-				trace("Hits: " + hits); 
+				trace("Hits: " + health); 
 			}
 			
 			
@@ -106,6 +105,19 @@ package
 		public function  destroy():void
 		{
 			FP.world.remove(this);
+		}
+		
+		public function takeDamage(damage:int):void
+		{
+			health -= damage;
+			
+			if (health < 0)
+			{
+				isAlive = false;
+				this.visible = false;
+				this.collidable = false;
+			}
+				
 		}
 	}
 
