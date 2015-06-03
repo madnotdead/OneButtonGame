@@ -5,6 +5,7 @@ package
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Backdrop;
 	import net.flashpunk.Mask;
+	import net.flashpunk.masks.Pixelmask;
 	
 	/**
 	 * ...
@@ -21,6 +22,7 @@ package
 			graphic.scrollX = .5;
 			layer = 100;
 			super(x, y, graphic, mask);
+			mask = new Pixelmask(BACKGROUND);
 			
 		}
 		

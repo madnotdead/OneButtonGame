@@ -5,6 +5,7 @@ package
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.Mask;
+	import net.flashpunk.masks.Pixelmask;
 	
 	/**
 	 * ...
@@ -29,6 +30,7 @@ package
 			type = "enemy";
 			speed = 200;
 			health = 100;
+			mask = new Pixelmask(ENEMY);
 		}
 		
 		

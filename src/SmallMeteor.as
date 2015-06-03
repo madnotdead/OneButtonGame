@@ -5,6 +5,7 @@ package
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.Mask;
+	import net.flashpunk.masks.Pixelmask;
 	/**
 	 * ...
 	 * @author madnotdead
@@ -29,6 +30,7 @@ package
 			}
 			
 			type = "sMeteor";
+			mask = new Pixelmask(SMALL);
 		}
 	
 		

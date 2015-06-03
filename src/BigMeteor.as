@@ -6,6 +6,7 @@ package
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.Mask;
+	import net.flashpunk.masks.Pixelmask;
 	/**
 	 * ...
 	 * @author madnotdead
@@ -24,6 +25,7 @@ package
 			healt = 3;
 			//trace(FP.rand(5));
 			speed = 200;
+			mask = new  Pixelmask(METEOR);
 		}
 		
 		override public function update():void 

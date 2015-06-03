@@ -2,6 +2,7 @@ package
 {
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
+	import net.flashpunk.Sfx;
 	import net.flashpunk.tweens.misc.VarTween;
 	import net.flashpunk.utils.Ease;
 	import net.flashpunk.utils.Input;
@@ -21,7 +22,7 @@ package
 		private const WAIT:String = "WAIT";
 		private const WAIT2:String = "WAIT2";
 		private const GAMEOVER:String = "GAMEOVER";
-		
+		private var mainLoop:Sfx;
 		private var title:Text;
 		private var titleTweenIn:VarTween;
 		private var titleTweenOut:VarTween;
@@ -33,7 +34,7 @@ package
 		private var finalScore:Text;
 		private var instruction:Text;
 		private var pressSpace:Text;
-		
+		[Embed(source="../audio/name.mp3")]private var LOOP:Class;
 		private var enemyTimer:Number = 3;
 		private var enemyWaitTime:Number = 0;
 		public function Level() 
@@ -49,6 +50,10 @@ package
 			addTween(instructionTweenOut);
 			addTween(titleTweenIn);
 			addTween(titleTweenOut);			
+			mainLoop = new Sfx(LOOP);
+			
+			if(!mainLoop.playing)
+				mainLoop.loop()
 		}
 		
 		override public function update():void 

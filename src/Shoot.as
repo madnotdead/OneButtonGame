@@ -5,6 +5,7 @@ package
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.Mask;
+	import net.flashpunk.masks.Pixelmask;
 	
 	/**
 	 * ...
@@ -20,7 +21,7 @@ package
 			graphic = new Image(SHOOT);
 			super(x, y, graphic, mask);
 			type = "shoot";
-			
+			mask = new Pixelmask(SHOOT);
 		}
 		
 		private var speed:int = 250;
