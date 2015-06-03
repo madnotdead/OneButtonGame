@@ -37,7 +37,7 @@ package
 			super.update();
 			
 			timeCounter += FP.elapsed;
-			trace(timeCounter);
+
 			if(timeCounter > waitTime)
 				y += speed * FP.elapsed;
 				
@@ -47,13 +47,16 @@ package
 			var shoot:Shoot = collide("shoot", x, y) as Shoot;
 			
 			if (shoot)
+			{
+				Level(world).gameScore.AddScore(1);
 				reset();
+			}
 		}
 	
 		public function reset():void
 		{
-			x = FP.rand(FP.screen.width - 136);
-			y = -177;
+			x = FP.rand(FP.screen.width - width);
+			y = -height;
 			
 			while (waitTime == 0)
 			{

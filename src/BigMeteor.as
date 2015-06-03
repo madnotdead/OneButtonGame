@@ -39,7 +39,10 @@ package
 				healt -= 1;
 				
 				if (healt < 0)
+				{
+					Level(world).gameScore.AddScore(2);
 					reset();	
+				}
 			}
 			
 			//Si se fue de pantalla que resetee su posicion
